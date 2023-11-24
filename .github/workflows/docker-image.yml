@@ -33,6 +33,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: natchanoncpf/natchanon-nestjs-helloworld:latest
           labels: ${{ steps.meta.outputs.labels }}
-          flavor: latest=auto
