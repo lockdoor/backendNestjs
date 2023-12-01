@@ -8,11 +8,22 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
+# setup deps
+RUN apk update \
+  && apk add openssl \
+  && apk cache clean
+
 # Install app dependencies
 RUN npm install
 
 # Bundle app source
 COPY . .
+
+# init DB
+RUN ls -la 
+RUN cp .env-example .env
+RUN npm run prisma:deploy
+
 
 # Creates a "dist" folder with the production build
 RUN npm run build
