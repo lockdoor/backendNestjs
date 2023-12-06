@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { TodoService } from './todo/todo.service';
+import { CreateTodoDto } from './todo/todo.dto';
 
 @Controller()
 export class AppController {
@@ -18,7 +19,7 @@ export class AppController {
   }
 
   @Post('/todos')
-  async createTodo(@Body() data: { title: string }) {
+  async createTodo(@Body() data: CreateTodoDto) {
     const { title } = data;
 
     return this.todoService.createTodo({
