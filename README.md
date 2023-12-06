@@ -33,3 +33,9 @@ DOCKER_PASSWORD
 
 DOCKER_USERNAME
 ```
+
+## Run with Docker playground
+
+```
+docker run -p 3000:3000 [YOUR_DOCKER_IMAGE]
+```
