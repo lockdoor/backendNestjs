@@ -1,0 +1,19 @@
+name: sonarcloud CI CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+
+jobs:
+  push_to_registry:
+    name: sonarcloud
+    runs-on: ubuntu-latest
+    steps:
+      - name: push to sonar
+        - uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
