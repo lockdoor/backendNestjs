@@ -39,3 +39,8 @@ DOCKER_USERNAME
 ```
 docker run -p 3000:3000 [YOUR_DOCKER_IMAGE]
 ```
+
+```
+docker build --tag natchanoncpf/natchanon-nestjs-helloworld:latest .
+docker push natchanoncpf/natchanon-nestjs-helloworld:latest
+```
